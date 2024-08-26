@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <form class="form-wrapper" method = 'post'>
+                        <input type="text" name= 'email'  class="form-control" placeholder="email">
+                        <input type="text" name= 'phone_number' class="form-control" placeholder="phone">
+                        <input type="submit" class="btn btn-primary" value ='ارسال'>
+                        {% csrf_token %}
+
+                    </form>
+</body>
+</html>

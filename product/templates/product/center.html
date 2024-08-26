@@ -1,0 +1,35 @@
+ {% extends 'product/index.html' %}
+{% block content %}
+	    <div class="center_content">
+      <div class="oferta">
+          {% for product in products %}
+
+              {% if product.increadibleoffer %}
+                      <img src="{{ product.image.url }}" width="165" height="113" border="0" class="oferta_img" alt="" />
+        <div class="oferta_details">
+          <div class="oferta_title">{{ product.name }}</div>
+          <div class="oferta_text"> {{ product.description|truncatechars:200  }} </div>
+          <a href='{% url "blog:detail" product.pk %}' style="border: 1px solid transparent;, background-color: #0f6674;" class="prod_buy">جزیات</a>
+        </div>
+              {% endif %}
+
+          {% endfor %}
+
+
+      </div>
+      <div class="center_title_bar">Latest Products</div>
+        {% for product in products %}
+        	      <div class="prod_box">
+        <div class="center_prod_box">
+          <div class="product_title"><a href="#">{{ product.name | truncatechars:20 }}</a></div>
+          <div class="product_img"><a href="{% url 'product:detail' product.pk %}"><img style="width: 100%;" src="{{ product.image.url }}" alt="" border="0" /></a></div>
+          <div class="prod_price"><span class="price">{{ product.price }}</span></div>
+        </div>
+        <div class="prod_details_tab"><a href='{% url "blog:detail" product.pk %}' class="prod_details">Details</a> </div>
+      </div>
+        {% endfor %}
+
+
+
+    </div>
+{% endblock %}

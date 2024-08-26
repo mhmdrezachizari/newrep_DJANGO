@@ -1,0 +1,27 @@
+  {% extends 'product/index.html' %}
+{% load static %}
+  {% block content %}
+  	    <div class="center_content">
+        {% for product in product %}
+        	      <div class="center_title_bar">{{ product.name }}</div>
+                  <div class="prod_box_big">
+        <div class="center_prod_box_big">
+          <div class="product_img_big"> <a href="javascript:popImage('images/big_pic.jpg','Some Title')" title="header=[Zoom] body=[&nbsp;] fade=[on]"><img src="images/p3.jpg" alt="" border="0" /></a>
+            <div class="thumbs"> <a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img style="width: 100%" src="{{ product.image.url }}" alt="" border="0" /></a> <a href="#" title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img src="images/thumb2.jpg" alt="" border="0" /></a> <a href="#" title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img src="images/thumb1.jpg" alt="" border="0" /></a> </div>
+          </div>
+          <div class="details_big_box">
+            <div class="product_title_big">{{ product.name |truncatechars:50 }}</div>
+            <div class="specifications"> موجودی: <span class="blue">{{ product.stock }}</span><br />
+              گارانتی: <span class="blue">24 ماه</span><br />
+              توضیحات :<span class="blue">{{ product.description }} </span><br />
+            </div>
+            <div class="prod_price_big"><span class="price">{{ product.price }}</span></div>
+            <a href="#" class="prod_buy">add to cart</a> <a href="#" class="prod_compare">compare</a> </div>
+        </div>
+      </div>
+        {% endfor %}
+
+
+
+    </div>
+  {% endblock %}
